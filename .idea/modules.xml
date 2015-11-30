@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/AppKit-Android.iml" filepath="$PROJECT_DIR$/AppKit-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/appkit-java/appkit-java.iml" filepath="$PROJECT_DIR$/appkit-java/appkit-java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appkit-kotlin/appkit-kotlin.iml" filepath="$PROJECT_DIR$/appkit-kotlin/appkit-kotlin.iml" />
     </modules>
   </component>
 </project>
