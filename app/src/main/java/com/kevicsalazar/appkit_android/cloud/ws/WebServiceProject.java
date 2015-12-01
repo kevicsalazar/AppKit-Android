@@ -1,5 +1,7 @@
 package com.kevicsalazar.appkit_android.cloud.ws;
 
+import android.graphics.Color;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -47,6 +49,7 @@ public class WebServiceProject {
                         project.setDescription(jsonObject.get("description").getAsString());
                         project.setImageUrl(jsonObject.get("image").getAsJsonObject().get("url").getAsString());
                         project.setLink(jsonObject.get("link").getAsString());
+                        project.setColor(Color.parseColor(jsonObject.get("color").getAsString()));
                         project.setCreatedAt(AppDateUtils.getDateFromString(AppDateUtils.SDF05, jsonObject.get("createdAt").getAsString()));
                         project.setUpdatedAt(AppDateUtils.getDateFromString(AppDateUtils.SDF05, jsonObject.get("updatedAt").getAsString()));
                         projectList.add(project);

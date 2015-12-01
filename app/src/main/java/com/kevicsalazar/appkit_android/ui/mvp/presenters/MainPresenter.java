@@ -31,7 +31,6 @@ public class MainPresenter implements BasePresenter {
             @Override
             public void onLoadSuccess(List<Project> projectList) {
                 if (view != null) {
-                    view.clearAdapter();
                     view.addProjectListToAdapter(projectList);
                 }
             }
@@ -54,8 +53,6 @@ public class MainPresenter implements BasePresenter {
     }
 
     public interface View {
-
-        void clearAdapter();
 
         void addProjectListToAdapter(List<Project> projectList);
 

@@ -13,6 +13,7 @@ public class Project {
     private String description;
     private String imageUrl;
     private String link;
+    private int color;
     private Date createdAt;
     private Date updatedAt;
 
@@ -54,6 +55,14 @@ public class Project {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
     public Date getCreatedAt() {

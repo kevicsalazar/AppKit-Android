@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Kevin Salazar
  */
@@ -25,8 +27,10 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(getLayout(), container, false);
+        ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
-        return inflater.inflate(getLayout(), container, false);
+        return view;
     }
 
     @Override
