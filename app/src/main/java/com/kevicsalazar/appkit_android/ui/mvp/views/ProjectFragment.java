@@ -14,9 +14,9 @@ import com.kevicsalazar.appkit_android.ui.adapters.BinderAdapter;
 import com.kevicsalazar.appkit_android.ui.adapters.BinderSection;
 import com.kevicsalazar.appkit_android.ui.adapters.ParagraphRecyclerBinder;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Project;
-import com.kevicsalazar.appkit_android.utils.WrappingLinearLayoutManager;
 import com.kevicsalazar.appkit_java.BaseFragment;
 import com.kevicsalazar.appkit_java.BasePresenter;
+import com.kevicsalazar.appkit_java.utils.NestedLinearLayoutManager;
 
 import org.parceler.Parcels;
 
@@ -33,8 +33,6 @@ public class ProjectFragment extends BaseFragment {
     @Inject
     BinderAdapter binderAdapter;
 
-    @Bind(R.id.wrapper)
-    View wrapper;
     @Bind(R.id.ivMockup1)
     ImageView ivMockup1;
     @Bind(R.id.recycler)
@@ -52,9 +50,8 @@ public class ProjectFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Project project = Parcels.unwrap(getArguments().getParcelable("project"));
-        wrapper.setBackgroundColor(project.getColor());
         Glide.with(this).load(project.getImageUrl()).into(ivMockup1);
-        recycler.setLayoutManager(new WrappingLinearLayoutManager(getContext()));
+        recycler.setLayoutManager(new NestedLinearLayoutManager(getContext()));
         recycler.setNestedScrollingEnabled(false);
         recycler.setAdapter(binderAdapter);
         recycler.setHasFixedSize(false);
@@ -77,6 +74,7 @@ public class ProjectFragment extends BaseFragment {
     }
 
     private void setupAdapter(Project project) {
+        binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));

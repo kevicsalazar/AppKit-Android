@@ -1,6 +1,5 @@
 package com.kevicsalazar.appkit_android.ui.mvp.views;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -9,10 +8,11 @@ import com.kevicsalazar.appkit_android.Initializer;
 import com.kevicsalazar.appkit_android.R;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Project;
 import com.kevicsalazar.appkit_android.ui.mvp.presenters.MainPresenter;
-import com.kevicsalazar.appkit_android.utils.CrossfadePageTransformer;
 import com.kevicsalazar.appkit_java.BaseActivity;
 import com.kevicsalazar.appkit_java.BasePresenter;
 import com.kevicsalazar.appkit_java.adapters.SimplePagerAdapter;
+import com.kevicsalazar.appkit_java.views.ext.BackgroundChangeListener;
+import com.kevicsalazar.appkit_java.views.ext.ParallaxPageTransformer;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     @Bind(R.id.viewPager)
     ViewPager viewPager;
 
-    boolean isOpaque = true;
+    ParallaxPageTransformer pageTransformer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,14 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
         setSupportActionBar(toolbar);
         setDisplayHomeAsUpEnabled(true);
 
+        pageTransformer = new ParallaxPageTransformer()
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMockup1, -0.5f, -5f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMockup2, -1f, -10f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.recycler, -2f, -2f));
+
         mainPresenter.view = this;
         mainPresenter.getListProjects();
+
     }
 
     @Override
@@ -58,39 +64,18 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     }
 
     @Override
-    public void addProjectListToAdapter(final List<Project> projectList) {
+    public void addProjectListToAdapter(List<Project> projectList) {
         SimplePagerAdapter adapter = new SimplePagerAdapter(getSupportFragmentManager());
         for (Project project : projectList) {
             adapter.addFragment(ProjectFragment.newInstance(project));
         }
+        viewPager.setPageTransformer(true, pageTransformer);
         viewPager.setAdapter(adapter);
-        viewPager.setPageTransformer(true, new CrossfadePageTransformer());
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (position == projectList.size() - 2 && positionOffset > 0) {
-                    if (isOpaque) {
-                        viewPager.setBackgroundColor(Color.TRANSPARENT);
-                        isOpaque = false;
-                    }
-                } else {
-                    if (!isOpaque) {
-                        viewPager.setBackgroundColor(Color.WHITE);
-                        isOpaque = true;
-                    }
-                }
-            }
+    }
 
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+    @Override
+    public void setColors(List<Integer> colors) {
+        viewPager.addOnPageChangeListener(new BackgroundChangeListener(colors, viewPager));
     }
 
 }

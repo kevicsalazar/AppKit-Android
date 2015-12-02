@@ -8,7 +8,8 @@ import jp.satorufujiwara.binder.Section;
  */
 public enum BinderSection implements Section {
 
-    PORTFOLIO;
+    PORTFOLIO,
+    OTHER;
 
     @Override
     public int position() {

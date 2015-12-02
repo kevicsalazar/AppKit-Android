@@ -6,6 +6,7 @@ import com.kevicsalazar.appkit_java.BasePresenter;
 import com.kevicsalazar.appkit_java.enums.LoadStatus;
 import com.kevicsalazar.appkit_java.interfaces.LoadCallback;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,11 @@ public class MainPresenter implements BasePresenter {
             public void onLoadSuccess(List<Project> projectList) {
                 if (view != null) {
                     view.addProjectListToAdapter(projectList);
+                    List<Integer> colors = new ArrayList<>();
+                    for (Project project : projectList) {
+                        colors.add(project.getColor());
+                    }
+                    view.setColors(colors);
                 }
             }
 
@@ -55,6 +61,8 @@ public class MainPresenter implements BasePresenter {
     public interface View {
 
         void addProjectListToAdapter(List<Project> projectList);
+
+        void setColors(List<Integer> colors);
 
     }
 
