@@ -3,12 +3,24 @@ package com.kevicsalazar.appkit_android.ui.mvp.views;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.kevicsalazar.appkit_android.Initializer;
 import com.kevicsalazar.appkit_android.R;
+import com.kevicsalazar.appkit_android.ui.adapters.BinderAdapter;
+import com.kevicsalazar.appkit_android.ui.adapters.BinderSection;
+import com.kevicsalazar.appkit_android.ui.adapters.ParagraphRecyclerBinder;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Project;
+import com.kevicsalazar.appkit_android.utils.WrappingLinearLayoutManager;
 import com.kevicsalazar.appkit_java.BaseFragment;
 import com.kevicsalazar.appkit_java.BasePresenter;
+
+import org.parceler.Parcels;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 
@@ -18,12 +30,19 @@ import butterknife.Bind;
  */
 public class ProjectFragment extends BaseFragment {
 
+    @Inject
+    BinderAdapter binderAdapter;
+
     @Bind(R.id.wrapper)
     View wrapper;
+    @Bind(R.id.ivMockup1)
+    ImageView ivMockup1;
+    @Bind(R.id.recycler)
+    RecyclerView recycler;
 
     public static Fragment newInstance(Project project) {
         Bundle bundle = new Bundle();
-        bundle.putInt("color", project.getColor());
+        bundle.putParcelable("project", Parcels.wrap(project));
         Fragment fragment = new ProjectFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -32,7 +51,14 @@ public class ProjectFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        wrapper.setBackgroundColor(getArguments().getInt("color"));
+        Project project = Parcels.unwrap(getArguments().getParcelable("project"));
+        wrapper.setBackgroundColor(project.getColor());
+        Glide.with(this).load(project.getImageUrl()).into(ivMockup1);
+        recycler.setLayoutManager(new WrappingLinearLayoutManager(getContext()));
+        recycler.setNestedScrollingEnabled(false);
+        recycler.setAdapter(binderAdapter);
+        recycler.setHasFixedSize(false);
+        setupAdapter(project);
     }
 
     @Override
@@ -47,7 +73,13 @@ public class ProjectFragment extends BaseFragment {
 
     @Override
     protected void setupComponent() {
+        Initializer.init(getActivity()).inject(this);
+    }
 
+    private void setupAdapter(Project project) {
+        binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
+        binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
+        binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
     }
 
 }

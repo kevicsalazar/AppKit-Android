@@ -49,4 +49,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract void setupComponent();
 
+    protected void setDisplayHomeAsUpEnabled(boolean value) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(value);
+        }
+    }
+
 }

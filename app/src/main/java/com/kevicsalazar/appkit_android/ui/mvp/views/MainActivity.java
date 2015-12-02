@@ -3,6 +3,7 @@ package com.kevicsalazar.appkit_android.ui.mvp.views;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 
 import com.kevicsalazar.appkit_android.Initializer;
 import com.kevicsalazar.appkit_android.R;
@@ -24,6 +25,8 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     @Inject
     MainPresenter mainPresenter;
 
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     @Bind(R.id.viewPager)
     ViewPager viewPager;
 
@@ -32,6 +35,9 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setSupportActionBar(toolbar);
+        setDisplayHomeAsUpEnabled(true);
+
         mainPresenter.view = this;
         mainPresenter.getListProjects();
     }

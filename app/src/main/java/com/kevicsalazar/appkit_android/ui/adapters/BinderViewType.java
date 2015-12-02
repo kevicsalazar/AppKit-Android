@@ -8,11 +8,11 @@ import jp.satorufujiwara.binder.ViewType;
  */
 public enum BinderViewType implements ViewType {
 
-    PORTFOLIO;
+    PARAGRAPH;
 
     @Override
     public int viewType() {
         return ordinal();
     }
-    
+
 }

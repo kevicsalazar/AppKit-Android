@@ -2,6 +2,7 @@ package com.kevicsalazar.appkit_android.ui;
 
 import com.kevicsalazar.appkit_android.AppComponent;
 import com.kevicsalazar.appkit_android.ui.mvp.views.MainActivity;
+import com.kevicsalazar.appkit_android.ui.mvp.views.ProjectFragment;
 import com.kevicsalazar.appkit_java.scopes.PerActivity;
 
 import dagger.Component;
@@ -17,5 +18,7 @@ public interface ActivityComponent {
     // Activities
 
     void inject(MainActivity activity);
+
+    void inject(ProjectFragment fragment);
 
 }

@@ -1,11 +1,14 @@
 package com.kevicsalazar.appkit_android.ui.mvp.model;
 
+import org.parceler.Parcel;
+
 import java.util.Date;
 
 /**
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
+@Parcel
 public class Project {
 
     private String id;
