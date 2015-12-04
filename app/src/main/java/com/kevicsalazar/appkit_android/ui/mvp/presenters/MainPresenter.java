@@ -13,9 +13,8 @@ import java.util.List;
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-public class MainPresenter implements BasePresenter {
+public class MainPresenter extends BasePresenter<MainPresenter.View> {
 
-    public View view;
     private WebServiceProject wsp;
 
     public MainPresenter(WebServiceProject wsp) {

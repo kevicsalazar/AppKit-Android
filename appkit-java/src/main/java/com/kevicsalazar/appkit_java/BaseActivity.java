@@ -20,6 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayout());
         ButterKnife.bind(this);
         setupComponent();
+        getPresenter();
     }
 
     @Override

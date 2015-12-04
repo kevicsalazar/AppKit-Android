@@ -51,11 +51,8 @@ public class ProjectFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         Project project = Parcels.unwrap(getArguments().getParcelable("project"));
         Glide.with(this).load(project.getImageUrl()).into(ivMockup1);
-        recycler.setLayoutManager(new NestedLinearLayoutManager(getContext()));
-        recycler.setNestedScrollingEnabled(false);
-        recycler.setAdapter(binderAdapter);
-        recycler.setHasFixedSize(false);
-        setupAdapter(project);
+        setupRecyclerView(recycler);
+        addItemsToAdapter(project);
     }
 
     @Override
@@ -73,7 +70,13 @@ public class ProjectFragment extends BaseFragment {
         Initializer.init(getActivity()).inject(this);
     }
 
-    private void setupAdapter(Project project) {
+    private void setupRecyclerView(RecyclerView recycler) {
+        recycler.setLayoutManager(new NestedLinearLayoutManager(getContext()));
+        recycler.setAdapter(binderAdapter);
+        recycler.setHasFixedSize(false);
+    }
+
+    private void addItemsToAdapter(Project project) {
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));
         binderAdapter.add(BinderSection.PORTFOLIO, new ParagraphRecyclerBinder(getActivity(), project));

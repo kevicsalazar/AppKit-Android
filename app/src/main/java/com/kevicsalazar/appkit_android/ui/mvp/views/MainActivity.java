@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
                 .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMockup2, -1f, -10f))
                 .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.recycler, -2f, -2f));
 
-        mainPresenter.view = this;
         mainPresenter.getListProjects();
 
     }
@@ -55,7 +54,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
 
     @Override
     protected BasePresenter getPresenter() {
-        return mainPresenter;
+        return mainPresenter.with(this);
     }
 
     @Override
