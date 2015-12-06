@@ -19,8 +19,6 @@ android {
         }
         debug {
             debuggable true
-            resValue "string", "google_api_key", "AIzaSyDpN5KkMlBJL8vTOzNl5Qv8ub4PHLUmeT4"
-            buildConfigField "String", "GOOGLE_API_KEY", '"AIzaSyDpN5KkMlBJL8vTOzNl5Qv8ub4PHLUmeT4"'
             buildConfigField "String", "GOOGLE_TRACKING_ID", '""'
         }
     }

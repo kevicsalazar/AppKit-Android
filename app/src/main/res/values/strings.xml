@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Portafolio</string>
+    <string name="network_error">No hay conexión a internet</string>
+    <string name="unknow_error">Ha ocurrido un error</string>
 </resources>

@@ -21,7 +21,7 @@
  * Site:  http://se.solovyev.org
  */
 
-package com.kevicsalazar.appkit_java.utils;
+package com.kevicsalazar.appkit_java.views.ext;
 
 import android.content.Context;
 import android.graphics.Rect;

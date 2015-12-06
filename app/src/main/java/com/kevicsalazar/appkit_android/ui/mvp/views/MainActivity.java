@@ -64,6 +64,11 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public void setupViewPager(List<Fragment> fragmentList) {
         SimplePagerAdapter adapter = new SimplePagerAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setPageTransformer(true, pageTransformer);

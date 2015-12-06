@@ -7,57 +7,147 @@
     android:baselineAligned="false"
     android:orientation="horizontal">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/linearLayout2"
-        android:layout_alignParentTop="true"
-        android:padding="16dp">
+        android:layout_alignParentTop="true">
 
         <TextView
             android:id="@+id/tvPeriod"
-            android:layout_width="64dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerVertical="true"
             android:gravity="center"
+            android:padding="16dp"
             android:textColor="@color/black"
             android:textSize="10sp"
             tools:text="Ene 2015\nActualidad"/>
 
-    </LinearLayout>
+        <FrameLayout
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true">
 
-    <LinearLayout
+            <LinearLayout
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/grey_300"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/grey_300"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_timeline_point"/>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/linearLayout"
         android:layout_toRightOf="@+id/linearLayout"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitle"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            tools:text="Universidad de Lima"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvOcupation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            tools:text="Cargo: Practicante - Programador Android"/>
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toLeftOf="@+id/linearLayout4"
+                android:layout_toStartOf="@+id/linearLayout4"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    tools:text="Universidad de Lima"/>
+
+                <TextView
+                    android:id="@+id/tvOcupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    tools:text="Cargo: Practicante - Programador Android"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/ivLink"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@color/grey_300"
+                    android:padding="2dp"/>
+
+                <TextView
+                    android:id="@+id/tvMarker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="@color/grey_300"
+                    android:padding="4dp"
+                    android:textSize="10sp"
+                    tools:text="Freelance"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/short_text"
             android:textSize="12sp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

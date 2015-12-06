@@ -13,9 +13,10 @@ import com.kevicsalazar.appkit_android.ui.adapters.BinderAdapter;
 import com.kevicsalazar.appkit_android.ui.adapters.BinderSection;
 import com.kevicsalazar.appkit_android.ui.adapters.PortfolioRecyclerBinder;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Item;
+import com.kevicsalazar.appkit_android.utils.AnalyticsProvider;
 import com.kevicsalazar.appkit_java.BaseFragment;
 import com.kevicsalazar.appkit_java.BasePresenter;
-import com.kevicsalazar.appkit_java.utils.NestedLinearLayoutManager;
+import com.kevicsalazar.appkit_java.views.ext.NestedLinearLayoutManager;
 import com.wnafee.vector.compat.ResourcesCompat;
 
 import org.parceler.Parcels;
@@ -34,6 +35,8 @@ public class PortfolioFragment extends BaseFragment {
 
     @Inject
     BinderAdapter binderAdapter;
+    @Inject
+    AnalyticsProvider analytics;
 
     @Bind(R.id.ivMac)
     ImageView ivMac;
@@ -75,6 +78,12 @@ public class PortfolioFragment extends BaseFragment {
     @Override
     protected void setupComponent() {
         Initializer.init(getActivity()).inject(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        analytics.trackScreenNameInBackground("Portafolio");
     }
 
     private void setupRecyclerView(RecyclerView recycler) {

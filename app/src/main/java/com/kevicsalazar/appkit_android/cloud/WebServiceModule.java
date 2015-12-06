@@ -1,6 +1,8 @@
 package com.kevicsalazar.appkit_android.cloud;
 
 import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
+import com.kevicsalazar.appkit_android.utils.AnalyticsProvider;
+import com.kevicsalazar.appkit_android.utils.StatusProvider;
 import com.kevicsalazar.appkit_java.scopes.PerApp;
 
 import javax.inject.Named;
@@ -41,8 +43,8 @@ public class WebServiceModule {
 
     @Provides
     @PerApp
-    WebServiceItem provideWebServiceItem(WebServiceItem.ItemService service) {
-        return new WebServiceItem(service);
+    WebServiceItem provideWebServiceItem(WebServiceItem.ItemService service, AnalyticsProvider analytics, StatusProvider status) {
+        return new WebServiceItem(service, analytics, status);
     }
 
 }
