@@ -8,7 +8,8 @@ import jp.satorufujiwara.binder.ViewType;
  */
 public enum BinderViewType implements ViewType {
 
-    PARAGRAPH;
+    PARAGRAPH,
+    PORTFOLIO;
 
     @Override
     public int viewType() {

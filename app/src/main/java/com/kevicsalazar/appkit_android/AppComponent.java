@@ -3,7 +3,7 @@ package com.kevicsalazar.appkit_android;
 import android.content.Context;
 
 import com.kevicsalazar.appkit_android.cloud.WebServiceModule;
-import com.kevicsalazar.appkit_android.cloud.ws.WebServiceProject;
+import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
 import com.kevicsalazar.appkit_android.storage.StorageModule;
 import com.kevicsalazar.appkit_android.storage.providers.PreferenceProvider;
 import com.kevicsalazar.appkit_android.utils.AnalyticsProvider;
@@ -39,6 +39,6 @@ public interface AppComponent {
 
     StatusProvider provideStatus();
 
-    WebServiceProject provideWebServicePortfolio();
+    WebServiceItem provideWebServicePortfolio();
 
 }

@@ -1,7 +1,12 @@
 package com.kevicsalazar.appkit_android.ui.mvp.presenters;
 
-import com.kevicsalazar.appkit_android.cloud.ws.WebServiceProject;
-import com.kevicsalazar.appkit_android.ui.mvp.model.Project;
+import android.graphics.Color;
+import android.support.v4.app.Fragment;
+
+import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
+import com.kevicsalazar.appkit_android.ui.mvp.model.Item;
+import com.kevicsalazar.appkit_android.ui.mvp.views.IntroductionFragment;
+import com.kevicsalazar.appkit_android.ui.mvp.views.PortfolioFragment;
 import com.kevicsalazar.appkit_java.BasePresenter;
 import com.kevicsalazar.appkit_java.enums.LoadStatus;
 import com.kevicsalazar.appkit_java.interfaces.LoadCallback;
@@ -15,28 +20,24 @@ import java.util.List;
  */
 public class MainPresenter extends BasePresenter<MainPresenter.View> {
 
-    private WebServiceProject wsp;
+    private WebServiceItem wsp;
 
-    public MainPresenter(WebServiceProject wsp) {
+    public MainPresenter(WebServiceItem wsp) {
         this.wsp = wsp;
     }
 
-    public void getListProjects() {
-        wsp.getListProjects(new LoadCallback<List<Project>>() {
+    public void getListItems() {
+        wsp.getListItems(new LoadCallback<List<Item>>() {
             @Override
             public void onLoadStatus(LoadStatus status) {
 
             }
 
             @Override
-            public void onLoadSuccess(List<Project> projectList) {
+            public void onLoadSuccess(List<Item> itemList) {
                 if (view != null) {
-                    view.addProjectListToAdapter(projectList);
-                    List<Integer> colors = new ArrayList<>();
-                    for (Project project : projectList) {
-                        colors.add(project.getColor());
-                    }
-                    view.setColors(colors);
+                    filterItemList(itemList);
+                    createColor();
                 }
             }
 
@@ -45,6 +46,29 @@ public class MainPresenter extends BasePresenter<MainPresenter.View> {
 
             }
         });
+    }
+
+    private void filterItemList(List<Item> itemList) {
+        List<Item> introductionList = new ArrayList<>();
+        List<Item> portfolioList = new ArrayList<>();
+        for (Item item : itemList) {
+            if (item.getPosition() == 1) {
+                introductionList.add(item);
+            } else {
+                portfolioList.add(item);
+            }
+        }
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(IntroductionFragment.newInstance(introductionList));
+        fragmentList.add(PortfolioFragment.newInstance(portfolioList));
+        view.setupViewPager(fragmentList);
+    }
+
+    private void createColor() {
+        List<Integer> colors = new ArrayList<>();
+        colors.add(Color.parseColor("#00BCD4"));
+        colors.add(Color.parseColor("#FFC107"));
+        view.setColors(colors);
     }
 
     @Override
@@ -59,7 +83,7 @@ public class MainPresenter extends BasePresenter<MainPresenter.View> {
 
     public interface View {
 
-        void addProjectListToAdapter(List<Project> projectList);
+        void setupViewPager(List<Fragment> fragmentList);
 
         void setColors(List<Integer> colors);
 

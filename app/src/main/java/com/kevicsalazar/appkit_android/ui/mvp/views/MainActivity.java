@@ -1,12 +1,12 @@
 package com.kevicsalazar.appkit_android.ui.mvp.views;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
 import com.kevicsalazar.appkit_android.Initializer;
 import com.kevicsalazar.appkit_android.R;
-import com.kevicsalazar.appkit_android.ui.mvp.model.Project;
 import com.kevicsalazar.appkit_android.ui.mvp.presenters.MainPresenter;
 import com.kevicsalazar.appkit_java.BaseActivity;
 import com.kevicsalazar.appkit_java.BasePresenter;
@@ -36,14 +36,15 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setSupportActionBar(toolbar);
-        setDisplayHomeAsUpEnabled(true);
 
         pageTransformer = new ParallaxPageTransformer()
-                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMockup1, -0.5f, -5f))
-                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMockup2, -1f, -10f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivMac, -0.5f, -5f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivAndroid, -1f, -10f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivBooks, -0.5f, -5f))
+                .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.ivHuman, -1f, -10f))
                 .addViewToParallax(new ParallaxPageTransformer.ParallaxTransformInformation(R.id.recycler, -2f, -2f));
 
-        mainPresenter.getListProjects();
+        mainPresenter.getListItems();
 
     }
 
@@ -63,11 +64,8 @@ public class MainActivity extends BaseActivity implements MainPresenter.View {
     }
 
     @Override
-    public void addProjectListToAdapter(List<Project> projectList) {
-        SimplePagerAdapter adapter = new SimplePagerAdapter(getSupportFragmentManager());
-        for (Project project : projectList) {
-            adapter.addFragment(ProjectFragment.newInstance(project));
-        }
+    public void setupViewPager(List<Fragment> fragmentList) {
+        SimplePagerAdapter adapter = new SimplePagerAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setPageTransformer(true, pageTransformer);
         viewPager.setAdapter(adapter);
     }

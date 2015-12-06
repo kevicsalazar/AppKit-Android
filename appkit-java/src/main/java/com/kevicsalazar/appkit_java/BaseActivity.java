@@ -56,4 +56,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void setLogo(int resId) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setLogo(resId);
+        }
+    }
+
 }

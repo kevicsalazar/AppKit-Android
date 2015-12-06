@@ -1,6 +1,6 @@
 package com.kevicsalazar.appkit_android.ui;
 
-import com.kevicsalazar.appkit_android.cloud.ws.WebServiceProject;
+import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
 import com.kevicsalazar.appkit_android.ui.adapters.BinderAdapter;
 import com.kevicsalazar.appkit_android.ui.mvp.presenters.MainPresenter;
 import com.kevicsalazar.appkit_java.scopes.PerActivity;
@@ -17,7 +17,7 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    MainPresenter provideMainPresenter(WebServiceProject service) {
+    MainPresenter provideMainPresenter(WebServiceItem service) {
         return new MainPresenter(service);
     }
 

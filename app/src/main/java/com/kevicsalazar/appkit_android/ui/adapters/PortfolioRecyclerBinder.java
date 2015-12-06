@@ -2,7 +2,6 @@ package com.kevicsalazar.appkit_android.ui.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,18 +16,18 @@ import jp.satorufujiwara.binder.recycler.RecyclerBinder;
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-public class ParagraphRecyclerBinder extends RecyclerBinder<BinderViewType> {
+public class PortfolioRecyclerBinder extends RecyclerBinder<BinderViewType> {
 
     private final Item item;
 
-    public ParagraphRecyclerBinder(Activity activity, Item item) {
-        super(activity, BinderViewType.PARAGRAPH);
+    public PortfolioRecyclerBinder(Activity activity, Item item) {
+        super(activity, BinderViewType.PORTFOLIO);
         this.item = item;
     }
 
     @Override
     public int layoutResId() {
-        return R.layout.item_paragraph;
+        return R.layout.item_portfolio;
     }
 
     @Override
@@ -39,13 +38,22 @@ public class ParagraphRecyclerBinder extends RecyclerBinder<BinderViewType> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         ViewHolder holder = (ViewHolder) viewHolder;
-        holder.tvParagraph.setText(Html.fromHtml(item.getDescription()));
+        holder.tvPeriod.setText(item.getPeriod());
+        holder.tvTitle.setText(item.getTitle());
+        holder.tvOcupation.setText(item.getOcupation());
+        holder.tvDescription.setText(item.getDescription());
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.tvParagraph)
-        TextView tvParagraph;
+        @Bind(R.id.tvPeriod)
+        TextView tvPeriod;
+        @Bind(R.id.tvTitle)
+        TextView tvTitle;
+        @Bind(R.id.tvOcupation)
+        TextView tvOcupation;
+        @Bind(R.id.tvDescription)
+        TextView tvDescription;
 
         public ViewHolder(View view) {
             super(view);

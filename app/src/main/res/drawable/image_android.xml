@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:width="39dp"
+        android:height="72dp"
+        android:viewportHeight="156.3"
+        android:viewportWidth="85.1"
+        app:vc_viewportHeight="156.3"
+        app:vc_viewportWidth="85.1"
+        tools:targetApi="21">
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,156.3H9.1c-5,0-9.1-4.1-9.1-9.1V9.1C0,4.1,4.1,0,9.1,0H76c5,0,9.1,4.1,9.1,9.1v138
+C85.1,152.2,81,156.3,76,156.3z"
+        app:vc_fillColor="#FFFFFF"
+        app:vc_pathData="M76,156.3H9.1c-5,0-9.1-4.1-9.1-9.1V9.1C0,4.1,4.1,0,9.1,0H76c5,0,9.1,4.1,9.1,9.1v138
+C85.1,152.2,81,156.3,76,156.3z"/>
+    <path
+        android:fillColor="#151314"
+        android:pathData="M 5.4 11 H 79.7 V 142.2 H 5.4 V 11 Z"
+        app:vc_fillColor="#151314"
+        app:vc_pathData="M 5.4 11 H 79.7 V 142.2 H 5.4 V 11 Z"/>
+    <path
+        android:fillColor="#EEEDEC"
+        android:pathData="M49.8,152.8H35.3c-2,0-3.6-1.6-3.6-3.6v0c0-2,1.6-3.6,3.6-3.6h14.5c2,0,3.6,1.6,3.6,3.6v0
+C53.3,151.2,51.7,152.8,49.8,152.8z"
+        app:vc_fillColor="#EEEDEC"
+        app:vc_pathData="M49.8,152.8H35.3c-2,0-3.6-1.6-3.6-3.6v0c0-2,1.6-3.6,3.6-3.6h14.5c2,0,3.6,1.6,3.6,3.6v0
+C53.3,151.2,51.7,152.8,49.8,152.8z"/>
+    <path
+        android:fillColor="#EEEDEC"
+        android:pathData="M50.5,6.7h-16c-0.2,0-0.3-0.1-0.3-0.3V5c0-0.2,0.1-0.3,0.3-0.3h16c0.2,0,0.3,0.1,0.3,0.3v1.4
+C50.9,6.6,50.7,6.7,50.5,6.7z"
+        app:vc_fillColor="#EEEDEC"
+        app:vc_pathData="M50.5,6.7h-16c-0.2,0-0.3-0.1-0.3-0.3V5c0-0.2,0.1-0.3,0.3-0.3h16c0.2,0,0.3,0.1,0.3,0.3v1.4
+C50.9,6.6,50.7,6.7,50.5,6.7z"/>
+    <path
+        android:fillAlpha="0.5"
+        android:fillColor="#414042"
+        android:pathData="M 79.7 142.2 L 5.4 142.2 L 79.7 11 Z"
+        android:strokeAlpha="0.5"
+        app:vc_fillAlpha="0.5"
+        app:vc_fillColor="#414042"
+        app:vc_pathData="M 79.7 142.2 L 5.4 142.2 L 79.7 11 Z"
+        app:vc_strokeAlpha="0.5"/>
+</vector>

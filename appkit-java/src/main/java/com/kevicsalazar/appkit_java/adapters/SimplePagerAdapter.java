@@ -18,8 +18,14 @@ public class SimplePagerAdapter extends FragmentPagerAdapter {
 
     public SimplePagerAdapter(FragmentManager fm) {
         super(fm);
-        fragmentList = new ArrayList<>();
-        titleList = new ArrayList<>();
+        this.fragmentList = new ArrayList<>();
+        this.titleList = new ArrayList<>();
+    }
+
+    public SimplePagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
+        super(fm);
+        this.fragmentList = fragmentList;
+        this.titleList = new ArrayList<>();
     }
 
     public void addFragment(Fragment fragment) {

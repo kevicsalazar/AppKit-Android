@@ -1,6 +1,6 @@
 package com.kevicsalazar.appkit_android.cloud;
 
-import com.kevicsalazar.appkit_android.cloud.ws.WebServiceProject;
+import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
 import com.kevicsalazar.appkit_java.scopes.PerApp;
 
 import javax.inject.Named;
@@ -35,14 +35,14 @@ public class WebServiceModule {
 
     @Provides
     @PerApp
-    WebServiceProject.ProjectService providePortfolioService(Retrofit retrofit) {
-        return retrofit.create(WebServiceProject.ProjectService.class);
+    WebServiceItem.ItemService providePortfolioService(Retrofit retrofit) {
+        return retrofit.create(WebServiceItem.ItemService.class);
     }
 
     @Provides
     @PerApp
-    WebServiceProject provideWebServiceProject(WebServiceProject.ProjectService service) {
-        return new WebServiceProject(service);
+    WebServiceItem provideWebServiceItem(WebServiceItem.ItemService service) {
+        return new WebServiceItem(service);
     }
 
 }
