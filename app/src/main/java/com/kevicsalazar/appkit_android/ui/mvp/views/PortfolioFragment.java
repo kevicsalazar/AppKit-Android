@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.kevicsalazar.appkit_android.Initializer;
 import com.kevicsalazar.appkit_android.R;
@@ -17,7 +16,6 @@ import com.kevicsalazar.appkit_android.utils.AnalyticsProvider;
 import com.kevicsalazar.appkit_java.BaseFragment;
 import com.kevicsalazar.appkit_java.BasePresenter;
 import com.kevicsalazar.appkit_java.views.ext.NestedLinearLayoutManager;
-import com.wnafee.vector.compat.ResourcesCompat;
 
 import org.parceler.Parcels;
 
@@ -38,10 +36,6 @@ public class PortfolioFragment extends BaseFragment {
     @Inject
     AnalyticsProvider analytics;
 
-    @Bind(R.id.ivMac)
-    ImageView ivMac;
-    @Bind(R.id.ivAndroid)
-    ImageView ivAndroid;
     @Bind(R.id.recycler)
     RecyclerView recycler;
 
@@ -57,10 +51,6 @@ public class PortfolioFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         List<Item> itemList = Parcels.unwrap(getArguments().getParcelable("itemList"));
-
-        ivMac.setImageDrawable(ResourcesCompat.getDrawable(getContext(), R.drawable.image_mac));
-        ivAndroid.setImageDrawable(ResourcesCompat.getDrawable(getContext(), R.drawable.image_android));
-
         setupRecyclerView(recycler);
         addItemsToAdapter(itemList);
     }

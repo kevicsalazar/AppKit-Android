@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.kevicsalazar.appkit_android.R;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Item;
-import com.wnafee.vector.compat.ResourcesCompat;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,7 +54,6 @@ public class PortfolioRecyclerBinder extends RecyclerBinder<BinderViewType> {
             holder.tvMarker.setVisibility(View.GONE);
         }
         if (!item.getLink().isEmpty()) {
-            holder.ivLink.setImageDrawable(ResourcesCompat.getDrawable(activity, R.drawable.ic_link_variant));
             holder.ivLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

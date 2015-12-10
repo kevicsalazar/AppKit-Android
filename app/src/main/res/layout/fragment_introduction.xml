@@ -23,7 +23,8 @@
                 android:layout_marginEnd="140dp"
                 android:layout_marginRight="140dp"
                 android:layout_marginTop="16dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_java"/>
 
             <ImageView
                 android:id="@+id/ivHuman"
@@ -32,7 +33,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="16dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_human"/>
 
             <ImageView
                 android:id="@+id/ivHtml"
@@ -41,7 +43,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="64dp"
                 android:layout_marginStart="64dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_html"/>
 
             <ImageView
                 android:id="@+id/ivCss"
@@ -53,14 +56,16 @@
                 android:layout_marginBottom="52dp"
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_css"/>
 
             <ImageView
                 android:id="@+id/ivBooks"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_books"/>
 
             <ImageView
                 android:id="@+id/ivMac"
@@ -71,7 +76,8 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginTop="64dp"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_mac"/>
 
         </RelativeLayout>
 
