@@ -16,22 +16,20 @@
 
             <ImageView
                 android:id="@+id/ivMac"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="220dp"
                 android:layout_centerInParent="true"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/image_mac"/>
 
             <ImageView
                 android:id="@+id/ivAndroid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="32dp"
+                android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_marginBottom="36dp"
                 android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/image_android"/>
 
