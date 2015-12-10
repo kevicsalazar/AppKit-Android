@@ -3,7 +3,7 @@ package com.kevicsalazar.appkit_android.ui.mvp.presenters;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 
-import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
+import com.kevicsalazar.appkit_android.storage.realm.ItemRealm;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Item;
 import com.kevicsalazar.appkit_android.ui.mvp.views.IntroductionFragment;
 import com.kevicsalazar.appkit_android.ui.mvp.views.PortfolioFragment;
@@ -20,14 +20,14 @@ import java.util.List;
  */
 public class MainPresenter extends BasePresenter<MainPresenter.View> {
 
-    private WebServiceItem wsp;
+    private ItemRealm itemRealm;
 
-    public MainPresenter(WebServiceItem wsp) {
-        this.wsp = wsp;
+    public MainPresenter(ItemRealm itemRealm) {
+        this.itemRealm = itemRealm;
     }
 
     public void getListItems() {
-        wsp.getListItems(new LoadCallback<List<Item>>() {
+        itemRealm.getListItems(new LoadCallback<List<Item>>() {
             @Override
             public void onLoadStatus(LoadStatus status) {
 

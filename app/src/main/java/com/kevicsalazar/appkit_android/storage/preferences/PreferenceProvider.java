@@ -1,4 +1,4 @@
-package com.kevicsalazar.appkit_android.storage.providers;
+package com.kevicsalazar.appkit_android.storage.preferences;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

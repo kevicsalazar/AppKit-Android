@@ -2,13 +2,18 @@ package com.kevicsalazar.appkit_android.ui.mvp.model;
 
 import org.parceler.Parcel;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
 @Parcel
-public class Item {
+public class Item extends RealmObject {
 
+    @PrimaryKey
+    private String id;
     private String title;
     private String description;
     private String ocupation;
@@ -17,6 +22,14 @@ public class Item {
     private String marker;
     private String link;
     private int position;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

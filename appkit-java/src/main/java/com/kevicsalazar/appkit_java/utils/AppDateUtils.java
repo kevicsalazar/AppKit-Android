@@ -17,7 +17,7 @@ public class AppDateUtils {
     public static final SimpleDateFormat SDF04 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
     public static final SimpleDateFormat SDF05 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
 
-    public Date addSeconds(Date date, int second) {
+    public static Date addSeconds(Date date, int second) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.SECOND, second);
