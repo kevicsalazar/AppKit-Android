@@ -6,6 +6,7 @@ import com.kevicsalazar.appkit_android.cloud.WebServiceModule;
 import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
 import com.kevicsalazar.appkit_android.storage.StorageModule;
 import com.kevicsalazar.appkit_android.storage.preferences.PreferenceProvider;
+import com.kevicsalazar.appkit_android.storage.realm.ItemRealm;
 import com.kevicsalazar.appkit_android.utils.AnalyticsProvider;
 import com.kevicsalazar.appkit_android.utils.ResourceProvider;
 import com.kevicsalazar.appkit_android.utils.StatusProvider;
@@ -43,5 +44,7 @@ public interface AppComponent {
     WebServiceItem provideWebServicePortfolio();
 
     Realm provideDefaultRealm();
+
+    ItemRealm provideItemRealm();
 
 }

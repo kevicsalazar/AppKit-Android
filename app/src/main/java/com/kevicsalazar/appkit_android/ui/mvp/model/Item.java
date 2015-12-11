@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-@Parcel
+@Parcel(Parcel.Serialization.BEAN)
 public class Item extends RealmObject {
 
     @PrimaryKey
