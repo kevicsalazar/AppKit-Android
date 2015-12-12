@@ -13,6 +13,7 @@ import com.kevicsalazar.appkit_java.interfaces.LoadCallback;
 import com.kevicsalazar.appkit_java.utils.UpdateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
@@ -77,6 +78,7 @@ public class WebServiceItem {
                                 }
                                 realm.copyToRealmOrUpdate(itemList);
                                 analytics.trackEventInBackground("Portafolio", "Request", "Lista de items");
+                                pref.putLong("ListItem", new Date().getTime());
                                 cb.onLoadSuccess(itemList);
                             }
                         });

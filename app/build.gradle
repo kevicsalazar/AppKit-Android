@@ -25,6 +25,9 @@ android {
             buildConfigField "String", "GOOGLE_TRACKING_ID", '""'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
 }
 
 dependencies {

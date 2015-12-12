@@ -1,5 +1,7 @@
 package com.kevicsalazar.appkit_android.storage.realm;
 
+import android.util.Log;
+
 import com.kevicsalazar.appkit_android.cloud.ws.WebServiceItem;
 import com.kevicsalazar.appkit_android.ui.mvp.model.Item;
 import com.kevicsalazar.appkit_java.interfaces.LoadCallback;
@@ -24,8 +26,10 @@ public class ItemRealm {
 
     public void getListItems(LoadCallback<List<Item>> cb) {
         if (ws.isTimeToUpdate()) {
+            Log.e("holi", "as");
             ws.getListItems(cb);
         } else {
+            Log.e("boli", "as");
             RealmQuery<Item> query = realm.where(Item.class);
             cb.onLoadSuccess(query.findAll());
         }

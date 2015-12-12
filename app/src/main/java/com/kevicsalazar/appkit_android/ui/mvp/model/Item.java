@@ -2,6 +2,7 @@ package com.kevicsalazar.appkit_android.ui.mvp.model;
 
 import org.parceler.Parcel;
 
+import io.realm.ItemRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -9,7 +10,7 @@ import io.realm.annotations.PrimaryKey;
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-@Parcel(Parcel.Serialization.BEAN)
+@Parcel(implementations = {ItemRealmProxy.class}, value = Parcel.Serialization.BEAN, analyze = {Item.class})
 public class Item extends RealmObject {
 
     @PrimaryKey
